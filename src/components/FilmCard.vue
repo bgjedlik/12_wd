@@ -1,13 +1,13 @@
 <template>
   <div 
     class="card-group col-12 col-md-3 mb-2"
+    :class="{cardNotVisible: item.season!=seasonNumber}"
     v-for="item in seasonList"
     :key="item.id"
     
   >
-  
-
-    <div class="card">
+  <!-- v-if="item.season==seasonNumber" -->
+    <div class="card" >
       <img 
         v-if="item.image"
         :src="item.image.medium" 
@@ -33,9 +33,12 @@
 <script>
 export default {
   name: "film-card",
-  props:['seasonList']
+  props:['seasonList','seasonNumber']
 };
 </script>
 
 <style>
+  .cardNotVisible{
+    display: none;
+  }
 </style>
